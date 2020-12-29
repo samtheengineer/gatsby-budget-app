@@ -3,46 +3,56 @@ import AllCostsChart from './allCostsChart';
 import NecessaryCostsChart from './necessaryCostsChart';
 import ExtraCostsChart from './extraCostsChart';
 
-// function populateCosts(dataNames, dataValues, data) {
-//     data.map((object) => {
-//         dataNames.push(object.name);
-//         dataValues.push(object.value);
+function setAllCostData(data, expenses) {
+    expenses.map(expense => {
+        if (expense.isNecessary) {
+            data[0] = expense.value + data[0];
+        } else {
+            data[1] = expense.value + data[1];
+        }
+    })
+}
 
-//     })
-// }
-// function calculateAllCosts(sums, necessaryValues, extraValues) {
-//     necessaryValues.map((value) => {
-//         sums[0] = sums[0] + value;
-//         console.log(value)
-//     })
-//     extraValues.map((value) => {
-//         sums[1] = sums[1] + value;
-//     })
-// }
+function setNecessaryCostData(labels, data, expenses) {
+    for (var i = 0; i < labels.length; i++) {
+        expenses.map(expense => {
+            console.log(expense.type + " " + labels[i])
+            if (labels[i] === expense.type && expense.isNecessary) {
+                data[i] = expense.value + data[i]
+                console.log(data[i])
+            }
+        })
+    }
+}
+function setExtraCostData(labels, data, expenses) {
+    for (var i = 0; i < labels.length; i++) {
+        expenses.map(expense => {
+            console.log(expense.type + " " + labels[i])
+            if (labels[i] === expense.type && !expense.isNecessary) {
+                data[i] = expense.value + data[i]
+            }
+        })
+    }
+}
 
-function DoughnutCharts() {
-
-    // const necessaryCostData = data.costs[1].necessaryCosts;
-    // const necessaryCostNames = [];
-    // const necessaryCostValues = [];
-    // populateCosts(necessaryCostNames, necessaryCostValues, necessaryCostData);
-    // const extraCostData = data.costs[0].extraCosts;
-    // const extraCostNames = [];
-    // const extraCostValues = [];
-    // populateCosts(extraCostNames, extraCostValues, extraCostData);
-
-    // const allCostsValues = [0, 0];
-    // calculateAllCosts(allCostsValues, necessaryCostValues, extraCostValues);
-
+const DoughnutCharts = (props) => {
+    const allCostData = [0, 0]
+    const necessaryCostLabels = ["rent", "utilities", "food", "transportation", "debt", "personal", "house items/supplies"]
+    const necessaryCostData = [0, 0, 0, 0, 0, 0, 0]
+    const extraCostLabels = ["dining", "entertainment", "gifts/donations", "other"]
+    const extraCostData = [0, 0, 0, 0]
+    setAllCostData(allCostData, props.expenses)
+    setNecessaryCostData(necessaryCostLabels, necessaryCostData, props.expenses)
+    setExtraCostData(extraCostLabels, extraCostData, props.expenses)
     return (
         <div className="row">
             <AllCostsChart labels={[
                 'Necessary Cost',
                 'Extra Cost'
-            ]} data={[]} />
-            <NecessaryCostsChart labels={[]} data={[]} />
+            ]} data={allCostData} />
+            <NecessaryCostsChart labels={necessaryCostLabels} data={necessaryCostData} />
 
-            <ExtraCostsChart labels={[]} data={[]} />
+            <ExtraCostsChart labels={extraCostLabels} data={extraCostData} />
         </div>
     )
 }

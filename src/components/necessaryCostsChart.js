@@ -8,7 +8,7 @@ function NecessaryCostsChart(props) {
             labels: [],
             datasets: [
                 {
-                    backgroundColor: ['rgba(37,95,133)', 'rgba(255,200,87)', 'rgba(233,114,76)', 'rgba(72,29,36)', 'rgba(100,235,100)', 'rgba(197,40,61)'],
+                    backgroundColor: ['rgba(37,95,133)', 'rgba(197,40,61)', 'rgba(255,200,87)', 'rgba(100,235,100)', 'rgba(233,114,76)', 'rgba(72,29,36)'],
                     data: []
                 }
             ]

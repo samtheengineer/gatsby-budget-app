@@ -97,7 +97,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <LineChart incomeData={incomeData} expenseData={expenseData} />
-      <DoughnutCharts />
+      <DoughnutCharts expenses={expenses}/>
     </Layout>
   )
 }
