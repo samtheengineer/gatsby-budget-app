@@ -39,13 +39,13 @@ const DoughnutCharts = (props) => {
     const allCostData = [0, 0]
     const necessaryCostLabels = ["rent", "utilities", "food", "transportation", "debt", "personal", "house items/supplies"]
     const necessaryCostData = [0, 0, 0, 0, 0, 0, 0]
-    const extraCostLabels = ["dining", "entertainment", "gifts/donations", "other"]
+    const extraCostLabels = ["personal spending", "entertainment", "gifts/donations", "other"]
     const extraCostData = [0, 0, 0, 0]
     setAllCostData(allCostData, props.expenses)
     setNecessaryCostData(necessaryCostLabels, necessaryCostData, props.expenses)
     setExtraCostData(extraCostLabels, extraCostData, props.expenses)
     return (
-        <div className="row">
+        <div className="row" id="doughnutCharts">
             <AllCostsChart labels={[
                 'Necessary Cost',
                 'Extra Cost'

@@ -5,9 +5,12 @@
   "version": "0.1.0",
   "author": "Samuel Wood",
   "dependencies": {
+    "axios": "0.21.1",
+    "bootstrap": "4.5.3",
     "chart.js": "2.9.4",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
+    "gatsby-plugin-google-fonts": "1.0.1",
     "gatsby-plugin-manifest": "^2.6.1",
     "gatsby-plugin-offline": "^3.4.0",
     "gatsby-plugin-react-helmet": "^3.4.0",
@@ -18,6 +21,7 @@
     "git": "0.1.5",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
+    "react-bootstrap": "1.4.0",
     "react-chartjs-2": "2.11.1",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0"

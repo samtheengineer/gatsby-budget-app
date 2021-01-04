@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import LineChart from '../components/lineChart'
 import DoughnutCharts from '../components/doughnutCharts'
-import Layout from "../components/layout"
+import Layout from "../layouts/layout"
 
 function organizeDatabyMonth(incomes, expenses, incomeData, expenseData) {
   incomes.map(income => {
@@ -96,8 +96,11 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <LineChart incomeData={incomeData} expenseData={expenseData} />
-      <DoughnutCharts expenses={expenses}/>
+      <div className="row">
+        <LineChart incomeData={incomeData} expenseData={expenseData} />
+      </div>
+        <DoughnutCharts expenses={expenses}/>
+    
     </Layout>
   )
 }
